@@ -47,7 +47,10 @@ table td:nth-child(even) {
 <body>
 
 <div class="container">
-<% for(i in data) { %>
+<%
+//#lista de snippets
+for(i = pagina.start; i < pagina.stop; i++) {
+%>
 <div class="panel panel-default">
 	<div class="panel-heading"><%= data[i].titulo %></div>
 	<div class="panel-body">
