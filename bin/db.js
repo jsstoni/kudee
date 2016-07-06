@@ -6,10 +6,10 @@ module.exports = (option) => {
 
 	var conectar = mysql.createPool({
 		connectionLimit: 100,
-		host: "localhost",
-		user: "root",
-		password: "",
-		database: "app"
+		host: option.host,
+		user: option.user,
+		password: option.password,
+		database: option.database
 	})
 /**
 * @param sQuery : query sql consulta string

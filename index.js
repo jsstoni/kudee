@@ -1,3 +1,4 @@
+'use strict'
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
@@ -17,8 +18,7 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }))
 app.use(bodyParser.json())
-app.use('/', controller.inicio)
-app.use('/pagina', controller.paginas)
+app.use('/snippet', controller.inicio)
 
 const server = app.listen(port, () => {
 	console.log('SERVER LISTING ON PORT '+port)

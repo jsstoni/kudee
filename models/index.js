@@ -1,7 +1,13 @@
 'use strict'
 
 module.exports = (mysql) => {
-	const mysl_conenct = require('../bin/db')(mysql)
+	let option = {
+		host: 'localhost',
+		user: 'root',
+		password: '',
+		database: 'app'
+	}
+	const mysl_conenct = require('../bin/db')(option)
 	return {
 		snippet: require('./snippet')(mysl_conenct)
 	}

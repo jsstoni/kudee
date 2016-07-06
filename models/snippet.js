@@ -13,6 +13,10 @@ module.exports = (mysql) => {
 		}).catch(err => console.log(err))
 	}
 
+	var selectSnippet = (id, callback) => {
+		id = id || false
+	}
+
 	var insertSnippet = (params) => {
 		params = params || {}
 	}
