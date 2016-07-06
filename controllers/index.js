@@ -3,5 +3,6 @@
 * modulo controlador router
 */
 module.exports = {
-	inicio : require('./inicio')
+	inicio : require('./inicio'),
+	paginas : require('./pagina')
 }

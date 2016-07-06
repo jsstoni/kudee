@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 app.use('/', controller.inicio)
+app.use('/pagina', controller.paginas)
 
 const server = app.listen(port, () => {
 	console.log('SERVER LISTING ON PORT '+port)
