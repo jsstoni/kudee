@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 app.use('/snippet', controller.snippet)
+app.use('/comentario', controller.comentarios)
 
 const server = app.listen(port, () => {
 	console.log('SERVER LISTING ON PORT '+port)

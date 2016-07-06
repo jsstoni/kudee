@@ -4,4 +4,5 @@
 */
 module.exports = {
 	snippet : require('./snippet'),
+	comentarios: require('./comentarios')
 }
