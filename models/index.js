@@ -9,6 +9,7 @@ module.exports = (mysql) => {
 	}
 	const mysl_conenct = require('../bin/db')(option)
 	return {
-		snippet: require('./snippet')(mysl_conenct)
+		snippet: require('./snippet')(mysl_conenct),
+		comentarios: require('./comentarios')(mysl_conenct)
 	}
 }
