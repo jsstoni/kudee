@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="active">Data</li>
+</ol>
+
+<% for(i in data) { %>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= data[i].titulo %></div>
+  <div class="panel-body">
+    <code>
+    	<%= data[i].blog_code %>
+    </code>
+  </div>
+</div>
+<% } %>
+</body>
+</html>
