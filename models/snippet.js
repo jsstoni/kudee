@@ -13,8 +13,14 @@ module.exports = (mysql) => {
 		}).catch(err => console.log(err))
 	}
 
-	var selectSnippet = (id, callback) => {
+	var selectSnippetID = (id, callback) => {
 		id = id || false
+		let query = "SELECT p.*, u.imagen, count(m.ID_post) as totalMensajes, count(v.IDv_post) as totalVotos FROM app_snippets AS p LEFT JOIN app_mensajes as m ON (m.ID_post = p.hash) LEFT JOIN app_votes as v ON (v.IDv_post = p.hash) LEFT JOIN app_usuarios AS u ON (p.creador = u.usuario) WHERE p.hash = ? GROUP BY p.ID"
+		let startQuery = Promise.resolve(mysql.Consultar(query, id))
+		Promise.race([startQuery])
+		.then(data => {
+			callback(data)
+		}).catch(err => console.log(err))
 	}
 
 	var insertSnippet = (params) => {
@@ -23,6 +29,7 @@ module.exports = (mysql) => {
 
 	return {
 		allSnippet : allSnippet,
+		selectSnippetID : selectSnippetID,
 		insertSnippet : insertSnippet
 	}
 }

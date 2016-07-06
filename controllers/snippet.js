@@ -9,4 +9,11 @@ router.get('/', (req, res) => {
 	})
 })
 
+router.get('/:id', (req, res) => {
+	const id = req.params.id
+	models.snippet.selectSnippetID(id, data => {
+		res.status(200).jsonp(data);
+	})
+})
+
 module.exports = router
