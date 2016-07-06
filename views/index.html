@@ -4,23 +4,64 @@
 <meta charset="UTF-8">
 <title></title>
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<style>
+table {
+	overflow: auto;
+	width: 100%;
+}
+table td:nth-child(odd) {
+	background: #f7f7f7;
+	border-right: #ddd solid 1px;
+	color: #999;
+	cursor: pointer;
+	min-width: 30px;
+	padding: 0 5px 0 0;
+	text-align: right;
+	vertical-align: top;
+	white-space: nowrap;
+	width: 1%;
+}
+table td:nth-child(odd)::before {
+content: attr(line-number);
+}
+table td:nth-child(even) {
+	color: #444;
+	font-size: 1em;
+	line-height: 14px !important;
+	overflow: visible;
+	padding: 0 10px;
+	vertical-align: middle;
+	white-space: pre;
+	word-wrap: normal;
+}
+.code {
+	background: #fff;
+	border: #ddd solid 1px;
+	line-height: 1.5em !important;
+	overflow: auto;
+	position: relative;
+}
+</style>
 </head>
 <body>
-<ol class="breadcrumb">
-	<li><a href="#">Home</a></li>
-	<li><a href="#">Library</a></li>
-	<li class="active">Data</li>
-</ol>
 
+<div class="container">
 <% for(i in data) { %>
 <div class="panel panel-default">
 	<div class="panel-heading"><%= data[i].titulo %></div>
 	<div class="panel-body">
-		<code>
-			<%- nl2br(data[i].blog_code) %>
-		</code>
+		<div class="code" data-lenguaje="<%= language(data[i].categoria); %>"><%- data[i].blog_code %></div>
 	</div>
 </div>
 <% } %>
+</div>
+<script src="/js/lenguaje/lenguaje.js"></script>
+<script src="/js/script.js"></script>
+<script>
+$(function() {
+	$(".code").prehigh();
+});
+</script>
 </body>
 </html>
