@@ -5,6 +5,8 @@ const app = module.exports = express()
 const controller = require('./controllers')
 const port = process.env.PORT || 8080
 
+require('./bin/string')(app)
+
 app.engine('.html', require('ejs').__express)
 
 app.set('views', __dirname + '/views')
